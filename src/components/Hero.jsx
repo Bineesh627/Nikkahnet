@@ -1,6 +1,6 @@
 import React from 'react';
 import { QuickSearch } from './QuickSearch';
-import { Shield, Sparkles, Heart, CheckCircle2, MessageCircle, ArrowRight } from 'lucide-react';
+import { MessageCircle, ArrowRight } from 'lucide-react';
 
 export function Hero({ onSearch, onPostAdClick, t, lang }) {
   return (
@@ -49,26 +49,6 @@ export function Hero({ onSearch, onPostAdClick, t, lang }) {
 
         {/* Quick Search Widget Bar */}
         <QuickSearch onSearch={onSearch} t={t} lang={lang} />
-
-        {/* Trust Badges / Stats Counters */}
-        <div className="stats-row">
-          <div className="stat-box">
-            <div className="stat-number">{t.stat_verified}</div>
-            <div className="stat-text">Active Proposals Across Kerala</div>
-          </div>
-          <div className="stat-box">
-            <div className="stat-number">{t.stat_families}</div>
-            <div className="stat-text">Matches Formed Alhamdulillah</div>
-          </div>
-          <div className="stat-box">
-            <div className="stat-number">{t.stat_focus}</div>
-            <div className="stat-text">Malappuram & Kozhikode Hubs</div>
-          </div>
-          <div className="stat-box">
-            <div className="stat-number">{t.stat_privacy}</div>
-            <div className="stat-text">AI Image & Privacy Protection</div>
-          </div>
-        </div>
       </div>
     </section>
   );

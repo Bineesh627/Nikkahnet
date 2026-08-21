@@ -13,37 +13,37 @@ export function Footer({ onNavigate, t, lang }) {
     <footer id="contact" className="footer">
       <div className="app-container">
         <div className="footer-grid">
-          {/* Column 1: Brand & Bio */}
-          <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
+          {/* Column 1: Brand & Mission */}
+          <div className="footer-col footer-col-brand">
+            <div className="footer-brand-header">
               <img 
                 src="/assets/images/logo.jpeg" 
                 alt="Nikah.Net Logo" 
-                style={{ width: '48px', height: '48px', borderRadius: '12px', border: '1.5px solid var(--gold-400)' }} 
+                className="footer-logo-img"
               />
               <div>
-                <div style={{ fontFamily: 'var(--font-heading)', fontSize: '1.4rem', fontWeight: 700, color: '#FFFFFF' }}>
-                  Nikah<span style={{ color: '#10B981' }}>.Net</span>
+                <div className="footer-brand-title">
+                  Nikah<span>.Net</span>
                 </div>
-                <div style={{ fontSize: '0.7rem', color: '#FDE68A', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
-                  Find Your Soulmate
+                <div className="footer-brand-sub">
+                  {lang === 'ml' ? 'മാട്രിമോണിയൽ പരസ്യങ്ങൾ' : 'Find Your Soulmate'}
                 </div>
               </div>
             </div>
 
-            <p style={{ fontSize: '0.875rem', color: 'rgba(255, 255, 255, 0.75)', lineHeight: 1.6, marginBottom: '1.25rem' }}>
-              {t.footer_tagline} Connecting genuine Muslim families across Malappuram, Kozhikode, and worldwide Malayali communities.
+            <p className="footer-brand-desc">
+              {t.footer_tagline} Connecting genuine Muslim families across Malappuram, Kozhikode, Kerala, and worldwide GCC Malayali communities.
             </p>
 
-            <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
+            {/* Social Media Channel Icons */}
+            <div className="footer-social-row">
               {/* YouTube Channel Icon */}
               <a 
                 href="https://youtube.com/@nikkahnett?si=Lo6Q4O-cozVeGY0y" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="btn btn-outline btn-icon"
-                style={{ background: 'rgba(255, 255, 255, 0.08)', borderColor: 'rgba(255, 255, 255, 0.2)', color: '#EF4444' }}
-                title="Subscribe to Official YouTube Channel (@nikkahnett)"
+                className="footer-social-btn footer-social-yt"
+                title="Official YouTube Channel (@nikkahnett)"
                 aria-label="Nikah.Net YouTube Channel"
               >
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -56,8 +56,7 @@ export function Footer({ onNavigate, t, lang }) {
                 href="https://www.instagram.com/nikkah.nett?igsh=MWpibTZkYWZqOWNmNg==" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="btn btn-outline btn-icon"
-                style={{ background: 'rgba(255, 255, 255, 0.08)', borderColor: 'rgba(255, 255, 255, 0.2)', color: '#FDE68A' }}
+                className="footer-social-btn footer-social-ig"
                 title="Follow on Instagram (@nikkah.nett)"
                 aria-label="Nikah.Net Instagram"
               >
@@ -73,8 +72,7 @@ export function Footer({ onNavigate, t, lang }) {
                 href="https://www.facebook.com/share/1BfzDwduDc/" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="btn btn-outline btn-icon"
-                style={{ background: 'rgba(255, 255, 255, 0.08)', borderColor: 'rgba(255, 255, 255, 0.2)', color: '#FDE68A' }}
+                className="footer-social-btn footer-social-fb"
                 title="Follow on Facebook"
                 aria-label="Nikah.Net Facebook"
               >
@@ -88,9 +86,8 @@ export function Footer({ onNavigate, t, lang }) {
                 href="https://wa.me/918075913098?text=Assalamu%20Alaikum%20Nikah.Net" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="btn btn-outline btn-icon"
-                style={{ background: 'rgba(255, 255, 255, 0.08)', borderColor: 'rgba(255, 255, 255, 0.2)', color: '#10B981' }}
-                title="Chat on WhatsApp"
+                className="footer-social-btn footer-social-wa"
+                title="Chat on WhatsApp (+91 80759 13098)"
                 aria-label="Nikah.Net WhatsApp Support"
               >
                 <MessageCircle size={18} />
@@ -98,12 +95,12 @@ export function Footer({ onNavigate, t, lang }) {
             </div>
           </div>
 
-          {/* Column 2: Quick Links */}
-          <div>
-            <h4 style={{ color: '#FFFFFF', fontSize: '1rem', fontWeight: 700, marginBottom: '1rem', letterSpacing: '0.04em' }}>
+          {/* Column 2: Quick Navigation Links */}
+          <div className="footer-col">
+            <h4 className="footer-col-title">
               Quick Navigation
             </h4>
-            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.6rem', fontSize: '0.875rem' }}>
+            <ul className="footer-links-list">
               <li>
                 <a href="#home" onClick={(e) => { e.preventDefault(); onNavigate('home'); }}>
                   {t.nav_home}
@@ -137,53 +134,96 @@ export function Footer({ onNavigate, t, lang }) {
             </ul>
           </div>
 
-          {/* Column 3: Contact Details */}
-          <div>
-            <h4 style={{ color: '#FFFFFF', fontSize: '1rem', fontWeight: 700, marginBottom: '1rem', letterSpacing: '0.04em' }}>
-              Official Contact
+          {/* Column 3: Focus Locations & Services */}
+          <div className="footer-col">
+            <h4 className="footer-col-title">
+              Coverage & Hubs
             </h4>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem', fontSize: '0.875rem', color: 'rgba(255, 255, 255, 0.85)' }}>
-              <div style={{ display: 'flex', gap: '0.6rem', alignItems: 'center' }}>
+            <ul className="footer-links-list">
+              <li>
+                <a href="#service-areas" onClick={(e) => { e.preventDefault(); onNavigate('service-areas'); }}>
+                  Malappuram Hub (Manjeri, Tirur)
+                </a>
+              </li>
+              <li>
+                <a href="#service-areas" onClick={(e) => { e.preventDefault(); onNavigate('service-areas'); }}>
+                  Kozhikode Hub (Calicut, Vadakara)
+                </a>
+              </li>
+              <li>
+                <a href="#service-areas" onClick={(e) => { e.preventDefault(); onNavigate('service-areas'); }}>
+                  Kannur & Palakkad Districts
+                </a>
+              </li>
+              <li>
+                <a href="#service-areas" onClick={(e) => { e.preventDefault(); onNavigate('service-areas'); }}>
+                  GCC & Worldwide Malayali NRI
+                </a>
+              </li>
+              <li>
+                <a href="#privacy-ethics" onClick={(e) => { e.preventDefault(); onNavigate('privacy-ethics'); }}>
+                  AI Image & Privacy Protection
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Column 4: Official Contact Details */}
+          <div className="footer-col">
+            <h4 className="footer-col-title">
+              Official Helpdesk
+            </h4>
+            <div className="footer-contact-block">
+              <div className="footer-contact-item">
                 <Phone size={16} className="text-gold" />
                 <span>+91 80759 13098</span>
               </div>
 
-              <div style={{ display: 'flex', gap: '0.6rem', alignItems: 'center' }}>
+              <div className="footer-contact-item">
                 <MessageCircle size={16} className="text-emerald" />
-                <a href="https://wa.me/918075913098" target="_blank" rel="noopener noreferrer" style={{ color: '#10B981', fontWeight: 600 }}>
-                  WhatsApp: 80759 13098
+                <a 
+                  href="https://wa.me/918075913098?text=Assalamu%20Alaikum%20Nikah.Net%20Helpdesk" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="footer-wa-link"
+                >
+                  WhatsApp: +91 80759 13098
                 </a>
               </div>
 
-              <div style={{ display: 'flex', gap: '0.6rem', alignItems: 'flex-start' }}>
-                <MapPin size={16} className="text-gold" style={{ marginTop: '0.2rem' }} />
-                <span>Malappuram & Kozhikode Districts, Kerala, India</span>
+              <div className="footer-contact-item">
+                <MapPin size={16} className="text-gold" style={{ marginTop: '0.15rem', flexShrink: 0 }} />
+                <span>Malappuram & Kozhikode, Kerala, India</span>
               </div>
+
+              {/* YouTube Channel Spotlight Button */}
+              <a 
+                href="https://youtube.com/@nikkahnett?si=Lo6Q4O-cozVeGY0y"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="footer-yt-badge"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                </svg>
+                <span>Subscribe on YouTube</span>
+              </a>
             </div>
           </div>
         </div>
 
         {/* Legal Disclaimer Box */}
-        <div style={{
-          background: 'rgba(255, 255, 255, 0.04)',
-          border: '1px solid rgba(255, 255, 255, 0.08)',
-          borderRadius: 'var(--radius-md)',
-          padding: '1.25rem',
-          fontSize: '0.8rem',
-          color: 'rgba(255, 255, 255, 0.7)',
-          lineHeight: 1.6,
-          marginBottom: '2rem'
-        }}>
+        <div className="footer-disclaimer-box">
           <strong>Matrimonial Advertising Disclaimer:</strong> {t.footer_disclaimer}
         </div>
 
         {/* Footer Bottom Bar */}
         <div className="footer-bottom">
           <div>{t.footer_rights}</div>
-          <div style={{ display: 'flex', gap: '1rem' }}>
+          <div className="footer-legal-links">
             <a href="#privacy-ethics" onClick={(e) => { e.preventDefault(); onNavigate('privacy-ethics'); }}>Privacy Policy</a>
             <span>•</span>
-            <a href="#privacy-ethics" onClick={(e) => { e.preventDefault(); onNavigate('privacy-ethics'); }}>AI Image Terms</a>
+            <a href="#privacy-ethics" onClick={(e) => { e.preventDefault(); onNavigate('privacy-ethics'); }}>AI Image Disclosure</a>
             <span>•</span>
             <a href="#contact" onClick={(e) => { e.preventDefault(); onNavigate('contact'); }}>Support</a>
           </div>

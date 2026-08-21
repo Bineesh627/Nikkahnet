@@ -122,7 +122,7 @@ export const translations = {
     // Footer
     footer_tagline: "A respectful matrimonial advertising and profile-sharing platform for Muslim families.",
     footer_disclaimer: "Nikah.Net is a matrimonial advertising and profile-sharing platform. We are not a traditional marriage broker/bureau. We do not arrange or guarantee marriages. Users and families are encouraged to independently verify all details before proceeding.",
-    footer_rights: "© 2026 Nikah.Net. All rights reserved. Designed with dignity and trust.",
+    footer_rights: "Copyright © 2026 Nikah.Net Powered by Hapco Media",
   },
   ml: {
     brand_name: "Nikah.Net",
