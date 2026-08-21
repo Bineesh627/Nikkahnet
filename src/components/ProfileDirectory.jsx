@@ -91,7 +91,7 @@ export function ProfileDirectory({
           </div>
 
           {/* Tab Filters */}
-          <div style={{ display: 'flex', justifyContent: 'center', margin: '1rem 0' }}>
+          <div className="filter-tabs-wrapper">
             <div className="filter-tabs">
               <button 
                 className={`filter-tab ${activeTab === 'All' ? 'active' : ''}`}
@@ -146,13 +146,13 @@ export function ProfileDirectory({
             </div>
 
             {/* Dropdown Filters */}
-            <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', alignItems: 'center' }}>
+            <div className="filter-dropdowns-row">
               {/* Sect Dropdown */}
               <select 
-                className="select-input" 
-                style={{ width: 'auto', padding: '0.55rem 0.9rem', fontSize: '0.813rem' }}
+                className="select-input filter-select" 
                 value={selectedSect}
                 onChange={(e) => setSelectedSect(e.target.value)}
+                aria-label="Filter by sect"
               >
                 <option value="All">{t.filter_sect_all}</option>
                 <option value="Sunni">Sunni (General / EK / AP)</option>
@@ -161,10 +161,10 @@ export function ProfileDirectory({
 
               {/* Marital Status */}
               <select 
-                className="select-input" 
-                style={{ width: 'auto', padding: '0.55rem 0.9rem', fontSize: '0.813rem' }}
+                className="select-input filter-select" 
                 value={selectedMarital}
                 onChange={(e) => setSelectedMarital(e.target.value)}
+                aria-label="Filter by marital status"
               >
                 <option value="All">{t.all_marital}</option>
                 <option value="Never Married">{t.never_married}</option>
@@ -174,10 +174,10 @@ export function ProfileDirectory({
 
               {/* Sort By */}
               <select 
-                className="select-input" 
-                style={{ width: 'auto', padding: '0.55rem 0.9rem', fontSize: '0.813rem' }}
+                className="select-input filter-select" 
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
+                aria-label="Sort matrimonial ads"
               >
                 <option value="newest">{t.sort_newest}</option>
                 <option value="ageAsc">{t.sort_age_asc}</option>
@@ -187,7 +187,7 @@ export function ProfileDirectory({
               {/* Reset Filter Button */}
               {(searchQuery || selectedDistrict !== 'All' || selectedSect !== 'All' || selectedMarital !== 'All' || activeTab !== 'All') && (
                 <button 
-                  className="btn btn-outline btn-sm"
+                  className="btn btn-outline btn-sm filter-reset-btn"
                   onClick={handleResetFilters}
                   title="Reset all filters"
                 >
@@ -199,7 +199,7 @@ export function ProfileDirectory({
           </div>
 
           {/* Results count text */}
-          <div style={{ fontSize: '0.813rem', color: 'var(--text-subtle)', marginTop: '0.5rem' }}>
+          <div className="results-count-text">
             {t.showing_results.replace('{count}', filteredProfiles.length)}
           </div>
         </div>

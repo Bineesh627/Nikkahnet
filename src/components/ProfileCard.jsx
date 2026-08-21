@@ -118,9 +118,8 @@ export function ProfileCard({
       <div className="card-footer-actions">
         {/* WhatsApp Inquiry Button */}
         <button 
-          className="btn btn-whatsapp btn-sm"
+          className="btn btn-whatsapp btn-sm card-btn-whatsapp"
           onClick={handleWhatsAppEnquiry}
-          style={{ flex: 1 }}
           title="Direct WhatsApp Inquiry to Nikah.Net"
         >
           <MessageCircle size={15} />
@@ -129,7 +128,7 @@ export function ProfileCard({
 
         {/* View Full Biodata */}
         <button 
-          className="btn btn-outline btn-sm"
+          className="btn btn-outline btn-sm card-btn-biodata"
           onClick={() => onViewBiodata(profile)}
           title="View Complete Biodata Sheet"
         >
@@ -139,20 +138,20 @@ export function ProfileCard({
 
         {/* Shortlist Toggle */}
         <button 
-          className={`btn btn-icon ${isShortlisted ? 'btn-gold' : 'btn-outline'}`}
+          className={`btn btn-icon card-btn-icon ${isShortlisted ? 'btn-gold' : 'btn-outline'}`}
           onClick={() => onToggleShortlist(profile)}
           title={isShortlisted ? t.btn_shortlisted : t.btn_shortlist}
-          style={{ width: '36px', height: '36px' }}
+          aria-label="Bookmark profile"
         >
           <Bookmark size={15} fill={isShortlisted ? 'currentColor' : 'none'} />
         </button>
 
         {/* Share Button */}
         <button 
-          className="btn btn-outline btn-icon"
+          className="btn btn-outline btn-icon card-btn-icon"
           onClick={handleShare}
           title={t.btn_share}
-          style={{ width: '36px', height: '36px' }}
+          aria-label="Share profile"
         >
           <Share2 size={15} />
         </button>

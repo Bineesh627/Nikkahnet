@@ -35,7 +35,22 @@ export function Footer({ onNavigate, t, lang }) {
               {t.footer_tagline} Connecting genuine Muslim families across Malappuram, Kozhikode, and worldwide Malayali communities.
             </p>
 
-            <div style={{ display: 'flex', gap: '0.75rem' }}>
+            <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
+              {/* YouTube Channel Icon */}
+              <a 
+                href="https://youtube.com/@nikkahnett?si=Lo6Q4O-cozVeGY0y" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="btn btn-outline btn-icon"
+                style={{ background: 'rgba(255, 255, 255, 0.08)', borderColor: 'rgba(255, 255, 255, 0.2)', color: '#EF4444' }}
+                title="Subscribe to Official YouTube Channel (@nikkahnett)"
+                aria-label="Nikah.Net YouTube Channel"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                </svg>
+              </a>
+
               {/* Instagram Icon */}
               <a 
                 href="https://www.instagram.com/nikkah.nett?igsh=MWpibTZkYWZqOWNmNg==" 
@@ -44,6 +59,7 @@ export function Footer({ onNavigate, t, lang }) {
                 className="btn btn-outline btn-icon"
                 style={{ background: 'rgba(255, 255, 255, 0.08)', borderColor: 'rgba(255, 255, 255, 0.2)', color: '#FDE68A' }}
                 title="Follow on Instagram (@nikkah.nett)"
+                aria-label="Nikah.Net Instagram"
               >
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
@@ -60,6 +76,7 @@ export function Footer({ onNavigate, t, lang }) {
                 className="btn btn-outline btn-icon"
                 style={{ background: 'rgba(255, 255, 255, 0.08)', borderColor: 'rgba(255, 255, 255, 0.2)', color: '#FDE68A' }}
                 title="Follow on Facebook"
+                aria-label="Nikah.Net Facebook"
               >
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
@@ -74,6 +91,7 @@ export function Footer({ onNavigate, t, lang }) {
                 className="btn btn-outline btn-icon"
                 style={{ background: 'rgba(255, 255, 255, 0.08)', borderColor: 'rgba(255, 255, 255, 0.2)', color: '#10B981' }}
                 title="Chat on WhatsApp"
+                aria-label="Nikah.Net WhatsApp Support"
               >
                 <MessageCircle size={18} />
               </a>

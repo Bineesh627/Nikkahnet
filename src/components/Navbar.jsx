@@ -19,8 +19,8 @@ export function Navbar({
   theme, 
   toggleTheme, 
   shortlistCount, 
-  openShortlist,
-  onNavigate,
+  openShortlist, 
+  onNavigate, 
   t 
 }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -34,13 +34,17 @@ export function Navbar({
     <header className="navbar">
       <div className="app-container navbar-inner">
         {/* Brand Logo & Tagline */}
-        <a href="#home" onClick={(e) => { e.preventDefault(); handleNavClick('home'); }} className="brand-logo-container">
+        <a 
+          href="#home" 
+          onClick={(e) => { e.preventDefault(); handleNavClick('home'); }} 
+          className="brand-logo-container"
+        >
           <img 
             src="/assets/images/logo.jpeg" 
             alt="Nikah.Net Logo" 
             className="brand-logo-img" 
           />
-          <div>
+          <div className="brand-text-block">
             <div className="brand-title">
               Nikah<span>.Net</span>
             </div>
@@ -51,7 +55,7 @@ export function Navbar({
         </a>
 
         {/* Desktop Navigation Links */}
-        <nav>
+        <nav className="desktop-nav">
           <ul className="nav-links">
             <li>
               <a href="#profiles" onClick={(e) => { e.preventDefault(); handleNavClick('profiles'); }} className="nav-link">
@@ -85,63 +89,56 @@ export function Navbar({
         <div className="nav-actions">
           {/* Language Toggle */}
           <button 
-            className="btn btn-outline btn-sm"
+            className="btn btn-outline btn-sm nav-lang-btn"
             onClick={() => setLang(lang === 'en' ? 'ml' : 'en')}
             title="Switch Language / ഭാഷ മാറ്റുക"
-            style={{ fontWeight: 600 }}
           >
             <Globe size={15} />
-            <span>{lang === 'en' ? 'മലയാളം' : 'English'}</span>
+            <span className="lang-text-desktop">{lang === 'en' ? 'മലയാളം' : 'English'}</span>
+            <span className="lang-text-mobile">{lang === 'en' ? 'ML' : 'EN'}</span>
           </button>
 
-          {/* Theme Switcher */}
+          {/* Theme Switcher (Desktop/Tablet) */}
           <button 
-            className="btn btn-outline btn-icon"
+            className="btn btn-outline btn-icon nav-theme-btn"
             onClick={toggleTheme}
             title={theme === 'light' ? 'Switch to Dark Mode' : 'Switch to Light Mode'}
             aria-label="Toggle Theme"
           >
-            {theme === 'light' ? <Moon size={18} /> : <Sun size={18} className="text-gold" />}
+            {theme === 'light' ? <Moon size={17} /> : <Sun size={17} className="text-gold" />}
           </button>
 
           {/* Shortlist Badge Button */}
           <button 
-            className="btn btn-outline btn-sm"
+            className="btn btn-outline btn-sm nav-shortlist-btn"
             onClick={openShortlist}
             title={t.shortlist_title}
-            style={{ position: 'relative' }}
           >
             <Bookmark size={16} className={shortlistCount > 0 ? "text-gold" : ""} />
             <span className="hidden-mobile">{t.shortlist_label}</span>
             {shortlistCount > 0 && (
-              <span style={{
-                background: 'var(--primary-700)',
-                color: '#fff',
-                fontSize: '0.7rem',
-                fontWeight: 700,
-                padding: '0.1rem 0.45rem',
-                borderRadius: '999px',
-                marginLeft: '0.2rem'
-              }}>
+              <span className="shortlist-counter-badge">
                 {shortlistCount}
               </span>
             )}
           </button>
 
-          {/* Post Your Ad CTA */}
+          {/* Post Your Ad CTA (Desktop/Tablet) */}
           <button 
-            className="btn btn-primary btn-sm"
+            className="btn btn-primary btn-sm nav-post-ad-btn"
             onClick={() => handleNavClick('post-ad')}
           >
             <PlusCircle size={16} />
-            <span>{t.btn_post_free_ad}</span>
+            <span className="hidden-tablet">{t.btn_post_free_ad}</span>
+            <span className="visible-tablet">Post Ad</span>
           </button>
 
           {/* Mobile Menu Toggle */}
           <button 
-            className="btn btn-outline btn-icon mobile-only"
+            className="btn btn-outline btn-icon mobile-menu-btn"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            style={{ display: 'none' }}
+            aria-label="Toggle mobile menu"
+            aria-expanded={mobileMenuOpen}
           >
             {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
@@ -150,29 +147,70 @@ export function Navbar({
 
       {/* Mobile Drawer Navigation if toggled */}
       {mobileMenuOpen && (
-        <div style={{
-          background: 'var(--bg-surface)',
-          padding: '1.25rem',
-          borderBottom: '1px solid var(--border-light)',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '0.75rem'
-        }}>
-          <button className="btn btn-outline" onClick={() => handleNavClick('profiles')} style={{ justifyContent: 'flex-start' }}>
-            {t.nav_profiles}
-          </button>
-          <button className="btn btn-outline" onClick={() => handleNavClick('post-ad')} style={{ justifyContent: 'flex-start' }}>
-            {t.nav_post_ad}
-          </button>
-          <button className="btn btn-outline" onClick={() => handleNavClick('couples')} style={{ justifyContent: 'flex-start' }}>
-            {t.nav_couples}
-          </button>
-          <button className="btn btn-outline" onClick={() => handleNavClick('service-areas')} style={{ justifyContent: 'flex-start' }}>
-            {t.nav_service_areas}
-          </button>
-          <button className="btn btn-outline" onClick={() => handleNavClick('privacy-ethics')} style={{ justifyContent: 'flex-start' }}>
-            {t.nav_privacy}
-          </button>
+        <div className="mobile-menu-drawer">
+          <div className="mobile-menu-links">
+            <button className="mobile-nav-link" onClick={() => handleNavClick('profiles')}>
+              <ShieldCheck size={18} className="text-gold" />
+              <span>{t.nav_profiles}</span>
+            </button>
+            <button className="mobile-nav-link" onClick={() => handleNavClick('post-ad')}>
+              <PlusCircle size={18} className="text-gold" />
+              <span>{t.nav_post_ad}</span>
+            </button>
+            <button className="mobile-nav-link" onClick={() => handleNavClick('couples')}>
+              <Heart size={18} className="text-gold" />
+              <span>{t.nav_couples}</span>
+            </button>
+            <button className="mobile-nav-link" onClick={() => handleNavClick('service-areas')}>
+              <MapPin size={18} className="text-gold" />
+              <span>{t.nav_service_areas}</span>
+            </button>
+            <button className="mobile-nav-link" onClick={() => handleNavClick('privacy-ethics')}>
+              <ShieldCheck size={18} className="text-gold" />
+              <span>{t.nav_privacy}</span>
+            </button>
+          </div>
+
+          <div className="mobile-menu-actions">
+            <button 
+              className="btn btn-outline mobile-drawer-btn"
+              onClick={toggleTheme}
+            >
+              {theme === 'light' ? <Moon size={16} /> : <Sun size={16} className="text-gold" />}
+              <span>{theme === 'light' ? 'Dark Mode (ഡാർക്ക് മോഡ്)' : 'Light Mode (ലൈറ്റ് മോഡ്)'}</span>
+            </button>
+
+            <button 
+              className="btn btn-primary mobile-drawer-btn" 
+              onClick={() => handleNavClick('post-ad')}
+            >
+              <PlusCircle size={16} />
+              <span>{t.btn_post_free_ad}</span>
+            </button>
+
+            <a 
+              href="https://wa.me/918075913098?text=Assalamu%20Alaikum%20Nikah.Net%20Team%2C%20I%20would%20like%20to%20know%20more%20about%20your%20matrimonial%20advertising%20services."
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="btn btn-whatsapp mobile-drawer-btn"
+            >
+              <MessageCircle size={16} />
+              <span>WhatsApp Official Help (80759 13098)</span>
+            </a>
+
+            <a 
+              href="https://youtube.com/@nikkahnett?si=Lo6Q4O-cozVeGY0y" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="btn btn-outline mobile-drawer-btn"
+              style={{ color: '#EF4444' }}
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+              </svg>
+              <span>YouTube Channel (@nikkahnett)</span>
+            </a>
+          </div>
         </div>
       )}
     </header>

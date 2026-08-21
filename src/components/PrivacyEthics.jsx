@@ -92,7 +92,7 @@ export function PrivacyEthics({ t, lang }) {
             </div>
           </div>
 
-          {/* Official Support Redressal Notice */}
+          {/* Official Support Redressal & Official Media Notice */}
           <div style={{
             marginTop: '2rem',
             padding: '1.25rem',
@@ -106,16 +106,30 @@ export function PrivacyEthics({ t, lang }) {
             gap: '1rem'
           }}>
             <div style={{ fontSize: '0.875rem', color: 'var(--text-muted)' }}>
-              Have a concern regarding any profile, photo, or contact detail? Contact our support team immediately:
+              Official Matrimonial Updates, Privacy Inquiries & Video Guidance on YouTube & WhatsApp:
             </div>
-            <a 
-              href="https://wa.me/918075913098?text=Assalamu%20Alaikum%20Support%20Team%2C%20I%20have%20a%20concern%20regarding%20a%20profile%20on%20Nikah.Net."
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="btn btn-primary btn-sm"
-            >
-              Contact Support: +91 80759 13098
-            </a>
+            <div style={{ display: 'flex', gap: '0.65rem', flexWrap: 'wrap' }}>
+              <a 
+                href="https://youtube.com/@nikkahnett?si=Lo6Q4O-cozVeGY0y" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="btn btn-outline btn-sm"
+                style={{ borderColor: 'rgba(239, 68, 68, 0.4)', color: '#EF4444' }}
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                </svg>
+                <span>YouTube (@nikkahnett)</span>
+              </a>
+              <a 
+                href="https://wa.me/918075913098?text=Assalamu%20Alaikum%20Support%20Team%2C%20I%20have%20a%20concern%20regarding%20a%20profile%20on%20Nikah.Net."
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="btn btn-primary btn-sm"
+              >
+                <span>Contact Support: +91 80759 13098</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>

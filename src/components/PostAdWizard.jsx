@@ -139,10 +139,10 @@ export function PostAdWizard({ t, lang }) {
               {/* STEP 1: Basic Details */}
               {currentStep === 1 && (
                 <div>
-                  <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.25rem', marginBottom: '1.25rem', color: 'var(--primary-800)' }}>
+                  <h3 className="wizard-step-title">
                     {t.step1_title}
                   </h3>
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+                  <div className="wizard-form-grid-2">
                     <div className="search-field">
                       <label className="search-label">Gender (ലിംഗം)</label>
                       <select 
@@ -218,7 +218,7 @@ export function PostAdWizard({ t, lang }) {
                       />
                     </div>
 
-                    <div className="search-field" style={{ gridColumn: 'span 2' }}>
+                    <div className="search-field grid-col-full">
                       <label className="search-label">Community / Sect (വിഭാഗം)</label>
                       <select 
                         className="select-input" 
@@ -239,10 +239,10 @@ export function PostAdWizard({ t, lang }) {
               {/* STEP 2: Education & Profession */}
               {currentStep === 2 && (
                 <div>
-                  <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.25rem', marginBottom: '1.25rem', color: 'var(--primary-800)' }}>
+                  <h3 className="wizard-step-title">
                     {t.step2_title}
                   </h3>
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '1rem' }}>
+                  <div className="wizard-form-grid-1">
                     <div className="search-field">
                       <label className="search-label">Educational Qualification (വിദ്യാഭ്യാസം)</label>
                       <input 
@@ -295,11 +295,11 @@ export function PostAdWizard({ t, lang }) {
               {/* STEP 3: Family Details */}
               {currentStep === 3 && (
                 <div>
-                  <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.25rem', marginBottom: '1.25rem', color: 'var(--primary-800)' }}>
+                  <h3 className="wizard-step-title">
                     {t.step3_title}
                   </h3>
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
-                    <div className="search-field" style={{ gridColumn: 'span 2' }}>
+                  <div className="wizard-form-grid-2">
+                    <div className="search-field grid-col-full">
                       <label className="search-label">Father's Information (പിതാവിന്റെ വിവരങ്ങൾ)</label>
                       <input 
                         type="text" 
@@ -310,7 +310,7 @@ export function PostAdWizard({ t, lang }) {
                       />
                     </div>
 
-                    <div className="search-field" style={{ gridColumn: 'span 2' }}>
+                    <div className="search-field grid-col-full">
                       <label className="search-label">Mother's Information (മാതാവിന്റെ വിവരങ്ങൾ)</label>
                       <input 
                         type="text" 
@@ -343,7 +343,7 @@ export function PostAdWizard({ t, lang }) {
                       />
                     </div>
 
-                    <div className="search-field" style={{ gridColumn: 'span 2' }}>
+                    <div className="search-field grid-col-full">
                       <label className="search-label">Family Background & Values (കുടുംബ പശ്ചാത്തലം)</label>
                       <input 
                         type="text" 
@@ -360,10 +360,10 @@ export function PostAdWizard({ t, lang }) {
               {/* STEP 4: Partner Preferences */}
               {currentStep === 4 && (
                 <div>
-                  <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.25rem', marginBottom: '1.25rem', color: 'var(--primary-800)' }}>
+                  <h3 className="wizard-step-title">
                     {t.step4_title}
                   </h3>
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '1rem' }}>
+                  <div className="wizard-form-grid-1">
                     <div className="search-field">
                       <label className="search-label">Preferred Age Range (പ്രായപരിധി)</label>
                       <input 
@@ -414,10 +414,10 @@ export function PostAdWizard({ t, lang }) {
               {/* STEP 5: Privacy & Contact */}
               {currentStep === 5 && (
                 <div>
-                  <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.25rem', marginBottom: '1.25rem', color: 'var(--primary-800)' }}>
+                  <h3 className="wizard-step-title">
                     {t.step5_title}
                   </h3>
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '1rem' }}>
+                  <div className="wizard-form-grid-1">
                     <div className="search-field">
                       <label className="search-label">
                         <Camera size={15} className="text-gold" />

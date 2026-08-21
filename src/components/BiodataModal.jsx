@@ -32,28 +32,28 @@ export function BiodataModal({ profile, onClose, t, lang }) {
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         {/* Modal Top Bar */}
         <div className="modal-header no-print">
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-            <span className="card-id-badge" style={{ fontSize: '0.9rem' }}>{profile.id}</span>
-            <span className="badge badge-emerald">
+          <div className="modal-header-info">
+            <span className="card-id-badge">{profile.id}</span>
+            <span className="badge badge-emerald modal-badge-text">
               <ShieldCheck size={14} />
-              <span>Verified Matrimonial Advertisement</span>
+              <span>Verified Matrimonial Ad</span>
             </span>
           </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+          <div className="modal-header-actions">
             <button 
-              className="btn btn-outline btn-sm"
+              className="btn btn-outline btn-sm modal-print-btn"
               onClick={handlePrint}
               title="Print Biodata for Family Discussion"
             >
               <Printer size={15} />
-              <span>Print Biodata</span>
+              <span className="hidden-mobile">Print Biodata</span>
             </button>
             <button 
-              className="btn btn-outline btn-icon"
+              className="btn btn-outline btn-icon modal-close-btn"
               onClick={onClose}
               title="Close modal"
-              style={{ width: '36px', height: '36px' }}
+              aria-label="Close modal"
             >
               <X size={18} />
             </button>
@@ -241,30 +241,23 @@ export function BiodataModal({ profile, onClose, t, lang }) {
           </table>
 
           {/* Contact Verification Action Bar */}
-          <div style={{
-            marginTop: '2rem',
-            padding: '1.5rem',
-            background: 'var(--bg-subtle)',
-            borderRadius: 'var(--radius-lg)',
-            border: '1px solid var(--border-light)',
-            textAlign: 'center'
-          }} className="no-print">
-            <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.15rem', marginBottom: '0.4rem', color: 'var(--primary-800)' }}>
+          <div className="modal-cta-box no-print">
+            <h4 className="modal-cta-title">
               Interested in this matrimonial proposal?
             </h4>
-            <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '1.25rem' }}>
+            <p className="modal-cta-desc">
               Connect with Nikah.Net's official coordinator in Malappuram to obtain verified guardian contact details.
             </p>
-            <div style={{ display: 'flex', gap: '0.75rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <div className="modal-cta-actions">
               <button 
-                className="btn btn-whatsapp"
+                className="btn btn-whatsapp modal-enquire-btn"
                 onClick={handleWhatsAppEnquiry}
               >
                 <MessageCircle size={17} />
-                <span>Enquire Profile {profile.id} on WhatsApp (80759 13098)</span>
+                <span>WhatsApp Enquiry ({profile.id})</span>
               </button>
               <button 
-                className="btn btn-outline"
+                className="btn btn-outline modal-back-btn"
                 onClick={onClose}
               >
                 <span>Back to Directory</span>
